@@ -6,9 +6,10 @@ class Solution:
     # @param s, a string
     # @return a boolean
     def isPalindrome(self, s):
-        # The fastest variant:
-        # s = filter(str.isalnum, s.lower())
-        # return s == s[::-1]
+        """
+            s = filter(str.isalnum, s.lower())
+            return s == s[::-1]
+        """
 
         if not s:
             return True
