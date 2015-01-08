@@ -22,10 +22,7 @@ class MinStack:
     def pop(self):
         v = self.stack.pop()
         if v == self.min:
-            if self.stack:
-                self.min = min(self.stack)
-            else:
-                self.min = None
+            self.min = min(self.stack) if self.stack else None
 
     # @return an integer
     def top(self):
