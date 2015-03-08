@@ -3,31 +3,30 @@
 
 # https://oj.leetcode.com/problems/min-stack/
 class MinStack:
-    min = None
-
     def __init__(self):
-        self.stack = []
+        self.sc = []
+        self.sm = []
 
     # @param x, an integer
     # @return an integer
     def push(self, x):
-        self.stack.append(x)
-        if self.min == None:
-            self.min = x
-        elif self.min > x:
-            self.min = x
+        self.sc.append(x)
+        if x <= self.getMin():
+            self.sm.append(x)
         return x
 
     # @return nothing
     def pop(self):
-        v = self.stack.pop()
-        if v == self.min:
-            self.min = min(self.stack) if self.stack else None
+        if self.sc.pop() == self.getMin():
+            self.sm.pop()
 
     # @return an integer
     def top(self):
-        return self.stack[-1]
+        return self.sc[-1]
 
     # @return an integer
     def getMin(self):
-        return self.min
+        try:
+            return self.sm[-1]
+        except IndexError:
+            return self.top()
