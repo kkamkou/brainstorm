@@ -6,7 +6,7 @@
     $temps = stream_get_line(STDIN, 256, "\n");
 
     foreach ($list as $int) {
-        if ($min === null || abs($min) > abs($int)  ) {
+        if ($min === null || abs($min) > abs($int)) {
             $min = $int;
         }
     }
