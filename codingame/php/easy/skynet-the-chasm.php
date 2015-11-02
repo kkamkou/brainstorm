@@ -24,5 +24,5 @@
             continue;
         }
 
-        echo("WAIT\n");
+        echo "WAIT\n";
     }
