@@ -19,24 +19,22 @@
     $blocks = [];
     while (true) {
         fscanf(STDIN, "%d %d %s", $cloneFloor, $clonePos, $direction);
-        $directionPos = $exitPos;
-        if ($cloneFloor != $exitFloor) {
-            $directionPos = $elevators[$cloneFloor];
-        }
 
         if (array_key_exists($cloneFloor, $blocks)) {
             echo "WAIT\n";
             continue;
         }
 
+        $directionPos = $exitPos;
+        if ($cloneFloor != $exitFloor) {
+            $directionPos = $elevators[$cloneFloor];
+        }
+
         if (($clonePos > $directionPos && $direction != 'LEFT')
             || ($clonePos < $directionPos && $direction != 'RIGHT')) {
-            if (!array_key_exists($cloneFloor, $blocks)) {
-                echo "BLOCK\n";
-                $blocks[$cloneFloor] = true;
-                continue;
-            }
-            $blocks[$cloneFloor] = 0;
+            $blocks[$cloneFloor] = true;
+            echo "BLOCK\n";
+            continue;
         }
 
         echo "WAIT\n";
